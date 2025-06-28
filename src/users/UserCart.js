@@ -28,10 +28,7 @@ const UserCart = () => {
       axios
         .delete(`http://localhost:8888/userdashboard/${id}`)
         .then(() => {
-          const updatedQuantities = { ...quantities };
-          delete updatedQuantities[id];
-          setQuantities(updatedQuantities);
-          setUserDashboard((prev) => prev.filter((item) => item.id !== id));
+         FetchData()
         })
         .catch((err) => {
           console.error("Delete failed:", err);
