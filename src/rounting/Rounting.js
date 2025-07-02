@@ -12,9 +12,8 @@ import Loginform from "../pages/LoginForm";
 
 
 const Rounting = createBrowserRouter([
-  {path:"/",element:<Loginform/>},
+  {path:"/",element:<Home/>},
   { path: "app", element: <App /> },
-  { path: "home", element: <Home /> },
   { path: "about", element: <About /> },
   { path: "contact", element: <Contact /> },
 

@@ -48,7 +48,7 @@ const Navbar = () => {
       >
         <ul className="navbar-nav align-items-center">
           <li className="nav-item mx-2">
-            <Link className="nav-link fw-semibold text-uppercase" to="/home">
+            <Link className="nav-link fw-semibold text-uppercase" to="/">
               Home
             </Link>
           </li>
