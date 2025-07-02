@@ -26,12 +26,14 @@ for every customer."</p>
 
             <div className="col-md-6 text-md-end">
                 <ul className="footer-links">
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/blush">Products</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/home">Home</Link></li>
-                    {/* <li><Link to="">Terms</Link></li> */}
+                    <li><Link className="link" to="/about">About</Link></li>
+                    <li><Link className="link" to="/blush">Products</Link></li>
+                    <li><Link className="link" to="/contact">Contact</Link></li>
+                    <li><Link className="link" to="/home">Home</Link></li>
+                    <li><Link className="link" to="">Terms</Link></li>
+                    <li><Link className="link" to="">Services</Link></li>
                 </ul>
+                
             </div>
         </div>
 

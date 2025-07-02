@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.blush-img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+}
+@media (max-width: 576px) {
+  .blush-img {
+    height: 40vh;
+  }
+}
+@media (min-width: 992px) {
+  .blush-img {
+    height: 20vh;
+  }
+}
+

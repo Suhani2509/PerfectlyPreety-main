@@ -13,8 +13,7 @@
       "description": "Long-wear liquid lipstick with bold color payoff",
       "price": 499,
       "originalPrice": 599,
-      "discount"
-      : 15
+      "discount": 15
     },
     {
       "id": "2",
@@ -63,7 +62,8 @@
       "id": "7b33"
     },
     {
-      "info2":"We're a brand that believes in empowerment. That's why, we carefully curate products from around the globe which meet every want and need there could possibly be when it comes to your makeup and skincare regime. We believe in every interpretation of beauty. Bold to subdued, quirky to crazy, everyday to glam goddess! Our aim is to celebrate every aspect of you, no matter what your style is."
+      "info2": "We're a brand that believes in empowerment. That's why, we carefully curate products from around the globe which meet every want and need there could possibly be when it comes to your makeup and skincare regime. We believe in every interpretation of beauty. Bold to subdued, quirky to crazy, everyday to glam goddess! Our aim is to celebrate every aspect of you, no matter what your style is.",
+      "id": "7134"
     }
   ],
   "lipstick": [
@@ -202,7 +202,7 @@
     {
       "id": "1",
       "image": "  /assests/images/foundation/kayfoundation.avif",
-      "description": "Kay Beauty hydrating rich foundation",
+      "description": "Kay Beauty hydrating high rich foundation",
       "price": 974,
       "originalPrice": 1229,
       "discount": 25
@@ -210,7 +210,7 @@
     {
       "id": "2",
       "image": "/assests/images/foundation/maybellinefoundation.avif",
-      "description": "Maybelline newyork super stay foundation",
+      "description": "Maybelline newyork  super stay foundation",
       "price": 619,
       "originalPrice": 825,
       "discount": 25
@@ -234,7 +234,7 @@
     {
       "id": "5",
       "image": "/assests/images/foundation/esteelauder.avif",
-      "description": "Estee Lauder Double Wear Foundation",
+      "description": "Estee Lauder rich Double Wear Foundation",
       "price": 5200,
       "originalPrice": 6999,
       "discount": 30
@@ -242,7 +242,7 @@
     {
       "id": "6",
       "image": "/assests/images/foundation/hudabeauty.avif",
-      "description": "Huda Beauty Easy Blur Foundation",
+      "description": "Huda Beauty long-lasting Easy Blur Foundation",
       "price": 3380,
       "originalPrice": 4000,
       "discount": 15
@@ -330,54 +330,5 @@
       "discount": 13
     }
   ],
-  "userdashboard": [
-    {
-      "id": "2",
-      "image": "/assests/images/foundation/maybellinefoundation.avif",
-      "description": "Maybelline newyork super stay foundation",
-      "price": 619,
-      "originalPrice": 825,
-      "discount": 25
-    },
-    {
-      "id": "4",
-      "image": "/assests/images/lipstick/lakmeforever.avif",
-      "description": "Lakme Forever Matte Lipstick",
-      "price": 319,
-      "originalPrice": 375,
-      "discount": 15
-    },
-    {
-      "id": "3",
-      "image": "/assests/images/eyeshadow/rhodaeyeshadow.webp",
-      "description": "Hilary Rhoda Perfection Eyeshadow Palette",
-      "price": 383,
-      "originalPrice": 425,
-      "discount": 10
-    },
-    {
-      "id": "8",
-      "image": "/assests/images/eyeshadow/blueheaveneyeshadow.webp",
-      "description": "Blue Heaven Bling 9 in 1 Eyeshadow Palette",
-      "price": 391,
-      "originalPrice": 449,
-      "discount": 13
-    },
-    {
-      "id": "1",
-      "image": "/assests/images/eyeshadow/marsdanceeyeshadow.webp",
-      "description": "MARS 12 Shades Dance of Joy Eyeshadow Palette",
-      "price": 260,
-      "originalPrice": 299,
-      "discount": 13
-    },
-    {
-      "id": "7",
-      "image": "/assests/images/lipstick/nykalipstick.avif",
-      "description": "Nykaa creme matte lipstick",
-      "price": 214,
-      "originalPrice": 329,
-      "discount": 35
-    }
-  ]
+  "userdashboard": []
 }
