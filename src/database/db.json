@@ -330,5 +330,62 @@
       "discount": 13
     }
   ],
-  "userdashboard": []
+  "userdashboard": [
+    {
+      "id": "1",
+      "image": "/assests/images/eyeshadow/marsdanceeyeshadow.webp",
+      "description": "MARS 12 Shades Dance of Joy Eyeshadow Palette",
+      "price": 260,
+      "originalPrice": 299,
+      "discount": 13
+    },
+    {
+      "id": "3",
+      "image": "/assests/images/lipstick/charlotte.avif",
+      "description": "Charlotte Tilbury Matte Resolution",
+      "price": 999,
+      "originalPrice": 599,
+      "discount": 30
+    },
+    {
+      "id": "2",
+      "image": "/assests/images/blush/maybellineblush.webp",
+      "description": "Maybelline new york blush",
+      "price": 849,
+      "originalPrice": 899,
+      "discount": 15
+    },
+    {
+      "id": "7",
+      "image": "/assests/images/blush/swissblush.webp",
+      "description": "Swiss variant color blushes",
+      "price": 562,
+      "originalPrice": 749,
+      "discount": 25
+    },
+    {
+      "id": "6",
+      "image": "/assests/images/blush/insightblsh.webp",
+      "description": "Insight Cosmetic blush stick",
+      "price": 350,
+      "originalPrice": 400,
+      "discount": 15
+    },
+    {
+      "id": "8",
+      "image": "/assests/images/blush/maybellinefitme.webp",
+      "description": "Maybelline new york mono blush ",
+      "price": 389,
+      "originalPrice": 599,
+      "discount": 35
+    },
+    {
+      "id": "5",
+      "image": "/assests/images/blush/marsblush.webp",
+      "description": "Mars Liquid Blush Hour",
+      "price": 299,
+      "originalPrice": 399,
+      "discount": 25
+    }
+  ]
 }

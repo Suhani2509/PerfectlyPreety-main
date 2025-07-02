@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/common/Navbar";
 
 const UserCart = () => {
   const [userdashboard, setUserDashboard] = useState([]);
@@ -38,6 +39,8 @@ const UserCart = () => {
   };
 
   return (
+    <div>
+    <Navbar/>
     <div className="container my-4">
       <h3 className="text-center mb-4">My Cart</h3>
 
@@ -96,6 +99,7 @@ const UserCart = () => {
           })}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

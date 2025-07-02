@@ -16,6 +16,7 @@ const Rounting = createBrowserRouter([
   { path: "app", element: <App /> },
   { path: "about", element: <About /> },
   { path: "contact", element: <Contact /> },
+  {path:"login",element:<Loginform/>},
 
   //products
   {path:"lipstick",element:<Lipstick/>},

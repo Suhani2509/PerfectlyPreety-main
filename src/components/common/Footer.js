@@ -8,7 +8,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" style={{marginTop:"60px"}}>
     <div className="container">
         <div className="row align-items-center">
             <div className="col-md-6">

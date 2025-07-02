@@ -70,21 +70,16 @@ const Lipstick = () => {
                       {item.discount}% off
                     </span>
                   </div>
-                  <div className="text-center mt-2">
-                    {addedToCart[item.id] ? (
-                      <button className="btn btn-outline-danger" onClick={() => navigate("/usercart")}>
-                        Go to Cart
-                      </button>
-                    ) : (
-                      <button
-                        className="btn"
-                        style={{ backgroundColor: "rgb(209, 0, 118)", color: "white" }}
-                        onClick={() => handleAddToCart(item)}
-                      >
-                        Add to Cart
-                      </button>
-                    )}
-                  </div>
+                  <button
+                    className={"btn mt-3 " + (addedToCart[item.id] ? "btn-outline-danger" : "btn-danger")}
+                    onClick={() =>
+                      addedToCart[item.id]
+                        ? navigate("/usercart")
+                        : handleAddToCart(item)
+                    }
+                  >
+                    {addedToCart[item.id] ? "Go to Cart" : "Add to Cart"}
+                  </button>
                 </div>
               </div>
             </div>

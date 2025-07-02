@@ -20,7 +20,7 @@ const About = () => {
   return (
     <div>
       <Navbar />
-
+      
       {/* Stylish About Section */}
       <section className="py-5" style={{ backgroundColor: "#afcfd1" }}>
         <div className="container text-center">

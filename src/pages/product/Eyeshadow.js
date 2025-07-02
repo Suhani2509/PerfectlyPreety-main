@@ -17,17 +17,18 @@ const Eyeshadow = () => {
   useEffect(() => {
     axios.get("http://localhost:8888/userdashboard")
       .then(res => {
+        const existingitem = res.data
         const cartMap = {}
-        res.data.forEach(item => {
-          cartMap[item.id] = true
-        })
+        existingitem.forEach(item => cartMap[item.id] = true)
         setAddedToCart(cartMap)
       })
   }, [])  // added empty dependency to avoid repeated calls
 
   const handlecart = (product) => {
-    axios.post("http://localhost:8888/userdashboard", product)
-      .then(res => alert("Product added successfully"))
+    axios.post("http://localhost:8888/userdashboard", product).then(()=>{
+      setAddedToCart(prev =>({...prev ,[product.id] : true}))
+      alert("Product added successfully")
+    })
       .catch(err => {
         console.error("Add to Cart Error:", err)
         alert("Failed to add product")
@@ -67,27 +68,16 @@ const Eyeshadow = () => {
                     </p>
                     <span className="text-success">{item.discount}% off</span>
                   </div>
-                  <div className="text-center mt-2">
-                    {addedToCart[item.id] ? (
-                      <button
-                        className="btn btn-outline-danger"
-                        onClick={() => navigate("/usercart")}
-                      >
-                        Go to Cart
-                      </button>
-                    ) : (
-                      <button
-                        className="btn"
-                        style={{
-                          backgroundColor: "rgb(209, 0, 118)",
-                          color: "white"
-                        }}
-                        onClick={() => handlecart(item)}
-                      >
-                        Add to Cart
-                      </button>
-                    )}
-                  </div>
+                  <button
+                    className={"btn mt-3 " + (addedToCart[item.id] ? "btn-outline-danger" : "btn-danger")}
+                    onClick={() =>
+                      addedToCart[item.id]
+                        ? navigate("/usercart")
+                        : handlecart(item)
+                    }
+                  >
+                    {addedToCart[item.id] ? "Go to Cart" : "Add to Cart"}
+                  </button>
                 </div>
               </div>
             </div>

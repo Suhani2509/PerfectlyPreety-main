@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Loginform = () => {
   const userInputEmail = useRef();
@@ -30,9 +31,9 @@ const Loginform = () => {
     );
 
     if (currentuser) {
-      alert("Welcome to our cosmetic store 😊");
+      alert("You have Successfully registered 😊");
       sessionStorage.setItem("islogin", "true");
-      navigate("/home");
+      navigate("/usercart");
     } else {
       alert("Sorry!! Invalid credentials 😭");
     }
@@ -102,6 +103,7 @@ const Loginform = () => {
           >
             Sign In
           </button>
+          <Link to='/'>Not registered yet?</Link><Link style={{marginLeft:"60px"}}>Login as Author</Link>
         </div>
       </form>
     </div>

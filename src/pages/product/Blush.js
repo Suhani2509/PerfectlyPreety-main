@@ -70,7 +70,7 @@ const Blush = () => {
                     <span className="text-success">{item.discount}% off</span>
                   </div>
                   <button
-                    className={"btn mt-3 " + (addedToCart[item.id] ? "btn-outline-success" : "btn-danger")}
+                    className={"btn mt-3 " + (addedToCart[item.id] ? "btn-outline-danger" : "btn-danger")}
                     onClick={() =>
                       addedToCart[item.id]
                         ? navigate("/usercart")

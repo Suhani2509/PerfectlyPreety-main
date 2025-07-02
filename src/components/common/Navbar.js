@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -7,6 +7,18 @@ import axios from "axios";
 
 const Navbar = () => {
   const [productcount,setproductcount] = useState()
+  const navigate = useNavigate()
+  
+
+  const handlelogin = ()=>{
+    const confirm = window.confirm("You First have to login")
+
+    if(confirm){
+      navigate("/login")
+    }
+  
+
+  }
 
   useEffect(()=>{
     axios.get("http://localhost:8888/userdashboard").then((res)=>{
@@ -115,11 +127,11 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <Link to="/usercart">
+        <button style={{border:"none", backgroundColor:"#eceff185"}} onClick={()=>handlelogin()}>
           <ShoppingCartOutlinedIcon style={{color:"crimson", fontSize: "30px"}} /><div 
           style={{textDecoration:"none" ,background: "crimson",borderRadius: "50px",color: "white",padding: ".5px 8px",fontWeight: "bold",textDecoration: "none",display: "inline-block" }}>{productcount}</div>
           {/* <span style={{backgroundColor:"crimson",borderRadius:"100px", color:"white", padding:"1px 7px", margin:"0 10px 10px 0", textDecoration:"none"}}>{productcount}</span> */}
-        </Link>
+        </button>
       </div>
     </nav>
   );

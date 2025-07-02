@@ -37,7 +37,7 @@ const Contact = () => {
               <div class="row justify-content-xl-center">
                 <div class="col-12 col-xl-11">
                   <div class="bg-white border rounded shadow-sm overflow-hidden">
-                    <form action="#!">
+                    <form action="/" >
                       <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                         <div class="col-12">
                           <label for="fullname" class="form-label">
@@ -48,7 +48,6 @@ const Contact = () => {
                             class="form-control"
                             id="fullname"
                             name="fullname"
-                            value=""
                             required
                           />
                         </div>
@@ -74,7 +73,6 @@ const Contact = () => {
                               class="form-control"
                               id="email"
                               name="email"
-                              value=""
                               required
                             />
                           </div>
@@ -101,7 +99,6 @@ const Contact = () => {
                               class="form-control"
                               id="phone"
                               name="phone"
-                              value=""
                             />
                           </div>
                         </div>
@@ -114,7 +111,6 @@ const Contact = () => {
                             class="form-control"
                             id="subject"
                             name="subject"
-                            value=""
                             required
                           />
                         </div>
