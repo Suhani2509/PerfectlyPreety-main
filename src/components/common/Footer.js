@@ -11,10 +11,10 @@ const Footer = () => {
     <footer className="pretty-footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Brand Section */}
+    
           <div className="footaer-branding">
             <h2 className="brand-title">Perfectly Preety</h2>
-            <p className="brand-tagline">Empowering beauty through elegance & innovation.</p>
+            <p className="brand-tagline">Empowering beauty through elegance & <br/>innovation.</p>
             <div className="footer-icons">
               <Link to="https://instagram.com/pretty_perfect_beauty" target="_blank"><InstagramIcon /></Link>
               <Link to="https://x.com/prettycosmetics" target="_blank"><TwitterIcon /></Link>
@@ -23,8 +23,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-links">
+
+          <div className="footer-links" style={{marginLeft:"50px"}}>
             <h4>Quick Links</h4>
             <ul>
               <li><Link to="/">Home</Link></li>
@@ -34,7 +34,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
+
           <div className="footer-info">
             <h4>Support</h4>
             <ul>

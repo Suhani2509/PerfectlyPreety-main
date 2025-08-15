@@ -113,20 +113,26 @@ const Lipstick = () => {
                       alt={item.description}
                       style={{ height: "220px", objectFit: "cover" }}
                     />
-                    <div className="card-body d-flex flex-column">
-                      <p
-                        className="text-center flex-grow-1"
-                        style={{ fontSize: "15px", fontWeight: 300 }}
-                      >
-                        {item.description}
-                      </p>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <h5>₹{item.price}/-</h5>
-                        <p className="text-muted text-decoration-line-through mb-0">
-                          ₹{item.originalPrice}
-                        </p>
-                        <span className="text-success">{item.discount}% off</span>
-                      </div>
+            <div className="card-body d-flex flex-column">
+              <p className="text-center flex-grow-1" style={{ fontSize: "15px", fontWeight: 300 }}>
+                {item.description}
+              </p>
+              <div className="d-flex justify-content-between align-items-center">
+                {(item.price || item.originalPrice) ? (
+                <>
+                {item.price && <h5>₹{item.price}/-</h5>}
+                {item.originalPrice && (<p className="text-muted text-decoration-line-through mb-0" style={{marginLeft:'-100px'}}>
+                  ₹{item.originalPrice}
+                </p>
+              )}
+              {item.discount && (
+                  <span className="text-success">{item.discount}% off</span>
+              )}
+              </>
+                ):(
+                    <span>Price not available</span>
+                )}
+              </div>
                       <button
                         className={
                           "btn mt-3 " +

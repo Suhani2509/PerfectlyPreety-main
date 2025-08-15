@@ -16,7 +16,7 @@ const Trackorder = () => {
     }
   }, [username]);
 
-  // Group orders by date
+
   const groupedOrders = orders.reduce((acc, order) => {
     const date = order.deliveryDate || "Unknown Date";
     if (!acc[date]) acc[date] = [];

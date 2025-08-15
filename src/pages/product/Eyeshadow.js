@@ -109,12 +109,23 @@ const Eyeshadow = () => {
                     {item.description}
                   </p>
                   <div className="d-flex justify-content-between align-items-center">
-                    <h5>₹{item.price}/-</h5>
-                    <p className="text-muted text-decoration-line-through mb-0">
-                      ₹{item.originalPrice}
-                    </p>
-                    <span className="text-success">{item.discount}% off</span>
+                    {(item.price || item.originalPrice) ? (
+                      <>
+                        {item.price && <h5>₹{item.price}/-</h5>}
+                        {item.originalPrice && (
+                          <p className="text-muted text-decoration-line-through mb-0" style={{marginLeft:'-100px'}}>
+                            ₹{item.originalPrice}
+                          </p>
+                        )}
+                        {item.discount && (
+                          <span className="text-success">{item.discount}% off</span>
+                        )}
+                      </>
+                    ) : (
+                      <span className="text-muted">Price not available</span>
+                    )}
                   </div>
+
                   <button
                     className={"btn mt-3 " + (addedToCart[key] ? "btn-outline-danger" : "btn-danger")}
                     onClick={() =>
