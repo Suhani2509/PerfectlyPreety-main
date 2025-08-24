@@ -11,7 +11,7 @@ const Eyeshadow = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    Get("http://localhost:8888/products").then((res) => {
+    Get("http://127.0.0.1:8000/product/products/").then((res) => {
       const Eyeshadow = res.filter((item)=>item.category==="eyeshadow")
       seteyeshadowdata(Eyeshadow)}).catch((err)=>{
         console.log("Eyeshadow err=",err)
@@ -21,7 +21,7 @@ const Eyeshadow = () => {
   useEffect(() => {
     const username = sessionStorage.getItem("username")
     if(username){
-      Get(`http://localhost:8888/userdashboard?name=${username}`).then((res)=>{
+      Get(`http://127.0.0.1:8000/product/products/?name=${username}`).then((res)=>{
         const cartMap = {}
         res.forEach((item)=>{
           const key = `${item.id}_${item.image}`
@@ -50,7 +50,7 @@ const Eyeshadow = () => {
   const productWithUser = { ...product, name: username, quantity: 1 };
 
   
-  Get(`http://localhost:8888/userdashboard?name=${username}`)
+  Get(`http://127.0.0.1:8000/product/products/?name=${username}`)
     .then((res) => {
       const alreadyInCart = res.some(
         (item) => item.id === product.id && item.image === product.image

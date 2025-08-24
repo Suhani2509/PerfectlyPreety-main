@@ -11,7 +11,7 @@ const Lipstick = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    Get("http://localhost:8888/products").then((res) => {
+    Get("http://127.0.0.1:8000/product/products/").then((res) => {
       const lipstick = res.filter((item)=>item.category === "lipstick")
       setLipstickData(lipstick);
     }).catch((err)=>{

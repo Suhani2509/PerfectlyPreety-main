@@ -59,7 +59,7 @@ const Contact = () => {
     const formData = { fullname, email, phone, subject, message };
 
     try {
-      await Post("http://localhost:8888/contactdata", formData);
+      await Post("http://127.0.0.1:8000/contact/register", formData);
       alert("Message submitted successfully!");
 
       fullnameRef.current.value = "";

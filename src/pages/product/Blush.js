@@ -12,7 +12,7 @@ const Blush = () => {
 
   // Fetch blush products
   useEffect(() => {
-    Get("http://localhost:8888/products").then((res) => {
+    Get("http://127.0.0.1:8000/product/products/").then((res) => {
       const blush = res.filter((item)=>item.category === "blush")
       setBlushData(blush);
     }).catch((err)=>{
@@ -24,7 +24,7 @@ const Blush = () => {
   useEffect(() => {
     const username = sessionStorage.getItem("username");
     if (username) {
-      Get(`http://localhost:8888/userdashboard?name=${username}`)
+      Get(`http://127.0.0.1:8000/product/products/?name=${username}`)
         .then((res) => {
           const cartMap = {};
           res.forEach((item) => {
@@ -55,7 +55,7 @@ const Blush = () => {
   const productWithUser = { ...product, name: username, quantity: 1 };
 
   // Check if this exact product is already in the cart for this user
-  Get(`http://localhost:8888/userdashboard?name=${username}`)
+  Get(`http://127.0.0.1:8000/product/products/?name=${username}`)
     .then((res) => {
       const alreadyInCart = res.some(
         (item) => item.id === product.id && item.image === product.image
@@ -67,7 +67,7 @@ const Blush = () => {
       }
 
       // Add to cart
-      Post("http://localhost:8888/userdashboard", productWithUser)
+      Post("http://127.0.0.1:8000/product/products/", productWithUser)
         .then(() => {
           setAddedToCart((prev) => ({ ...prev, [key]: true }));
           window.dispatchEvent(new CustomEvent("cartUpdate"));

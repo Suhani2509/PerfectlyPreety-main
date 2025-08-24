@@ -392,6 +392,15 @@
       "originalPrice": "800",
       "discount": 5,
       "category": "eyeshadow"
+    },
+    {
+      "id": "1755344260260",
+      "image": "\\assests\\images\\lipstick\\dior lipstick.avif\"",
+      "description": "bbkas",
+      "price": "520",
+      "originalPrice": "620",
+      "discount": "10",
+      "category": "lipstick"
     }
   ],
   "userdashboard": [],

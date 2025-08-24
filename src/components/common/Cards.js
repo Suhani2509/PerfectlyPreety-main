@@ -32,11 +32,6 @@ const Cards = () => {
                   {item.description}
                 </p>
                 <div className="d-flex justify-content-between align-items-center mt-auto">
-                  {/* <h5 className="text-danger mb-0" style={{fontWeight:"700"}}>₹{item.price}</h5> */}
-                  {/* <small className="text-muted text-decoration-line-through"> */}
-                    {/* ₹{item.originalPrice} */}
-                  {/* </small> */}
-                  {/* <span className="text-success fw-bold">{item.discount}% off</span> */}
                 </div>
               </div>
             </div>

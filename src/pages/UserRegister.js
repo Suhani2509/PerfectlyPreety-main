@@ -63,13 +63,12 @@ const UserRegister = () => {
     }
 
     try {
-      const res = await Get(`http://localhost:8888/loginuser?email=${formData.email}`)
-      if (res.length > 0) {
+      const res = await Get(`http://127.0.0.1:8000/user/email-exist/?email=${formData.email}`)
+      if (res.exists) {
         setErrors({ email: "Email is already registered!" })
         return
       }
-
-      await Post("http://localhost:8888/loginuser", formData)
+      await Post("http://127.0.0.1:8000/user/register", formData)
       alert("Registered Successfully!!")
       navigate("/login")
     } catch (err) {
@@ -94,7 +93,6 @@ const UserRegister = () => {
         className="row w-100 shadow-lg rounded-4 overflow-hidden"
         style={{ maxWidth: "1000px", backgroundColor: "white" }}
       >
-        {/* Left Form */}
         <div className="col-md-6 p-5">
           <h3 className="text-center mb-4" style={{ color: "#7b1fa2", fontFamily: "Times New Roman" }}>
             Sign Up to PrettyCosmetics
@@ -204,7 +202,6 @@ const UserRegister = () => {
           </form>
         </div>
 
-        {/* Right Image */}
         <div
           className="col-md-6 d-none d-md-block"
           style={{
