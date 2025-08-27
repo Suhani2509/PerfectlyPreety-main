@@ -73,6 +73,7 @@ const UserRegister = () => {
       navigate("/login")
     } catch (err) {
       console.log("Registration Error= ", err)
+      
       alert("Something went wrong while registering!")
     }
   }
