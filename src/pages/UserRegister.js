@@ -5,7 +5,7 @@ import { Get, Post } from '../utilities/HttpService (3)'
 
 const UserRegister = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     contact: "",
     dob: "",
@@ -13,7 +13,7 @@ const UserRegister = () => {
     password: "",
     address: ""
   })
-
+  const [showpassword,setpassword] = useState(false)
   const [errors, setErrors] = useState({})
   const navigate = useNavigate()
 
@@ -21,7 +21,7 @@ const UserRegister = () => {
     const {name,value} = e.target
 
     let Updatename = value
-    if(name==="name"){
+    if(name==="username"){
       Updatename = value.charAt(0).toUpperCase() + value.slice(1)
     }
     setFormData(prev => ({
@@ -36,7 +36,7 @@ const UserRegister = () => {
     const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
     const contactRegex = /^\d{10}$/
 
-    if (!formData.name.trim()) newErrors.name = "Name is required"
+    if (!formData.username.trim()) newErrors.username = "Name is required"
     if (!formData.email) newErrors.email = "Email is required"
     else if (!emailRegex.test(formData.email)) newErrors.email = "Invalid email format"
 
@@ -46,7 +46,6 @@ const UserRegister = () => {
     if (!formData.contact) newErrors.contact = "Contact is required"
     else if (!contactRegex.test(formData.contact)) newErrors.contact = "Contact must be 10 digits"
 
-    if (!formData.dob) newErrors.dob = "Date of birth is required"
     if (!formData.gender) newErrors.gender = "Please select a gender"
     if (!formData.address.trim()) newErrors.address = "Address is required"
 
@@ -68,7 +67,7 @@ const UserRegister = () => {
         setErrors({ email: "Email is already registered!" })
         return
       }
-      await Post("http://127.0.0.1:8000/user/register", formData)
+      await Post("http://127.0.0.1:8000/user/register/", formData)
       alert("Registered Successfully!!")
       navigate("/login")
     } catch (err) {
@@ -99,13 +98,13 @@ const UserRegister = () => {
             Sign Up to PrettyCosmetics
           </h3>
           <form onSubmit={handleSubmit}>
-            {errors.name && <p className="text-danger">{errors.name}</p>}
+            {errors.username && <p className="text-danger">{errors.username}</p>}
             <input
               type="text"
-              name="name"
+              name="username"
               placeholder="Enter your name"
               className="form-control mb-3"
-              value={formData.name}
+              value={formData.username}
               onChange={handleChange}
               style={{ fontFamily: "Cursive" }}
             />
@@ -122,15 +121,36 @@ const UserRegister = () => {
             />
 
             {errors.password && <p className="text-danger">{errors.password}</p>}
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              className="form-control mb-3"
-              value={formData.password}
-              onChange={handleChange}
-              style={{ fontFamily: "Cursive" }}
-            />
+            <div style={{ position: "relative" }} className="mb-3">
+              <input
+                type={showpassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+                className="form-control"
+                value={formData.password}
+                onChange={handleChange}
+                style={{ fontFamily: "Cursive", paddingRight: "40px" }} 
+              />
+
+              <button
+                type="button"
+                onClick={() => setpassword(!showpassword)}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  color: "#585e64ff"
+                }}
+              >
+                {showpassword ? "Hide" : "Show"}
+              </button>
+            </div>
+
 
             {errors.contact && <p className="text-danger">{errors.contact}</p>}
             <input
@@ -139,16 +159,6 @@ const UserRegister = () => {
               placeholder="Enter 10-digit Contact Number"
               className="form-control mb-3"
               value={formData.contact}
-              onChange={handleChange}
-              style={{ fontFamily: "Cursive" }}
-            />
-
-            {errors.dob && <p className="text-danger">{errors.dob}</p>}
-            <input
-              type="date"
-              name="dob"
-              className="form-control mb-3"
-              value={formData.dob}
               onChange={handleChange}
               style={{ fontFamily: "Cursive" }}
             />
@@ -167,9 +177,9 @@ const UserRegister = () => {
               }}
             >
               <option value="">Select Gender</option>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Other">Other</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
             </select>
 
             {errors.address && <p className="text-danger">{errors.address}</p>}

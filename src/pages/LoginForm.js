@@ -1,43 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { Get } from "../utilities/HttpService (3)";
 
 const Loginform = () => {
   const userInputEmail = useRef();
   const userInputPassword = useRef();
-  const [userdata, setuserdata] = useState([]);
   const [errors, setErrors] = useState({});
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    Get("http://localhost:8888/loginuser")
-      .then(res => setuserdata(res))
-      .catch(err => console.log("Error fetching users:", err));
-  }, []);
-
   const validate = (email, password) => {
     const newErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
+    if (!email) newErrors.email = "Email is required.";
+    else if (!emailRegex.test(email)) newErrors.email = "Enter a valid email.";
 
-    if (!email) {
-      newErrors.email = "Email is required.";
-    } else if (!emailRegex.test(email)) {
-      newErrors.email = "Enter a valid email address.";
-    }
-
-    if (!password) {
-      newErrors.password = "Password is required.";
-    } else if (!passRegex.test(password)) {
-      newErrors.password = "Minimum 4 characters with letters & numbers.";
-    }
-
+    if (!password) newErrors.password = "Password is required.";
     return newErrors;
   };
 
-  const Loginsubmit = (e) => {
+  const Loginsubmit = async (e) => {
     e.preventDefault();
 
     const email = userInputEmail.current.value.trim();
@@ -48,27 +30,23 @@ const Loginform = () => {
     setLoginError("");
 
     if (Object.keys(validationErrors).length === 0) {
-      const currentuser = userdata.find(
-        (user) => user.email === email && user.password === password
-      );
+      try {
+        const res = await axios.post("http://127.0.0.1:8000/user/user-login/", {
+          email,
+          password,
+        });
 
-      if (currentuser) {
         sessionStorage.setItem("islogin", true);
-        sessionStorage.setItem("username", currentuser.name);
-        alert("Login successfull!!✔")
+        sessionStorage.setItem("username", res.data.username);
 
-        const pendingProduct = sessionStorage.getItem("pendingProduct");
-        const returnPath = sessionStorage.getItem("returnPath");
-
-        sessionStorage.removeItem("pendingProduct");
-        sessionStorage.removeItem("returnPath");
-
-        navigate(returnPath || "/");
-      } else {
-        setLoginError("Incorrect email or password.");
+        alert("Login successful! ✔");
+        navigate("/");
+      } catch (err) {
+        setLoginError("Invalid email or password.");
       }
     }
   };
+
 
   return (
     <div
