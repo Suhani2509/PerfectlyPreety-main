@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -6,12 +6,14 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Get } from "../../utilities/HttpService (3)";
+import { Usercontext } from "../../users/Usercontext";
 
 const Navbar = () => {
   const [productcount,setproductcount] = useState(0)
   const navigate = useNavigate()
   const [isLogin,setisLogin] = useState(false)
   const [Name,setName] = useState("")
+  const {user,setUser} = useContext(Usercontext)
 
   const handlelogin = ()=>{
       const confirmLogin = sessionStorage.getItem('islogin')
@@ -58,6 +60,7 @@ const Navbar = () => {
     const Logout = window.confirm("Are you sure you want to logout?")
 
     if (Logout){
+      setUser(null)
       sessionStorage.clear();
     setisLogin(false)
     setName("")
@@ -90,7 +93,7 @@ const Navbar = () => {
       style={{ fontFamily: "cursive", fontSize: "18px", background: "none", border: "none" }}
     >
       <PersonOutlinedIcon style={{ fontSize: "30px", marginRight: "5px",}} />
-      Welcome {Name}
+      Welcome {user.username}
     </button>
      <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
       <li>

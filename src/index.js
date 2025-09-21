@@ -6,11 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { RouterProvider } from "react-router-dom";
 import Rounting from "./rounting/Rounting";
+import { Usercontext, UserProvider } from "./users/Usercontext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <UserProvider>
     <RouterProvider router={Rounting} />
+    </UserProvider>
   </React.StrictMode>
 );
 
